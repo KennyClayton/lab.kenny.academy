@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>DNS Glossary - Lab</title>
+  <style>
+    html {
+      background-color: #e78f1c;
+    }
+
+    body {
+      border-radius: 100px;
+      background-color: #fff;
+      padding: 10px;
+    }
+
+    .collapsible {
+      background-color: #eee;
+      color: #333;
+      cursor: pointer;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 18px;
+      border-radius: 8px;
+      /* Subtle rounded corners */
+    }
+
+    .active,
+    .collapsible:hover {
+      background-color: #ccc;
+    }
+
+    .content {
+      font-family: Arial, sans-serif;
+      padding: 0 18px;
+      display: none;
+      overflow: hidden;
+      background-color: #f9f9f9;
+    }
+
+    @keyframes purpleGlow {
+      0% {
+        box-shadow: 0 0 0px 0px #b39ddb;
+      }
+
+      50% {
+        box-shadow: 0 0 40px 10px rgb(118, 8, 161);
+      }
+
+      100% {
+        box-shadow: 0 0 0px 0px purple;
+      }
+    }
+
+    body.glow {
+      animation: purpleGlow 5s ease-in-out infinite;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body style="border-radius: 10px;">
+
+  <h2 style="font-family: Arial, sans-serif;">DNS Glossary - Lab</h2>
+  <button class="collapsible">Show/Hide List</button>
+  <div class="content">
+    <ul>
+      <li>DNS stands for Domain Name System</li>
+      <li>It translates domain names to IP addresses</li>
+      <li>DNS servers can be primary or secondary</li>
+      <li>Common DNS record types: A, AAAA, CNAME, MX, TXT</li>
+      <li>DNS caching helps speed up web browsing</li>
+      <!-- Add more items as you like -->
+    </ul>
+    <p>Text here</p>
+  </div>
+
+  <script>
+    var coll = document.querySelector('.collapsible');
+    var content = document.querySelector('.content');
+    coll.addEventListener('click', function () {
+      this.classList.toggle('active');
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+    // Flash purple glow on page load
+    window.onload = function () {
+      document.body.classList.add('glow');
+    };
+    coll.addEventListener('mouseenter', function () {
+      var rect = coll.getBoundingClientRect();
+      var x = (rect.left + rect.width / 2) / window.innerWidth;
+      var y = (rect.top + rect.height / 2) / window.innerHeight;
+      confetti({
+        particleCount: 600,
+        spread: 70,
+        origin: { x: x, y: y },
+        emojis: ['🎃']
+      });
+    });
+  </script>
+
+</body>
+
+</html>
