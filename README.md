@@ -1,7 +1,7 @@
 # lab.kenny.academy
 Lab site for DNS projects
 
-## Why a separate repo?
+## Why a separate repo from kennyclayton.github.io?
 This site (lab.kenny.academy) is for DNS and networking documentation projects. It’s separate from the main GitHub Pages repo (kennyclayton.github.io) so I can:
 
 -Keep project-specific content organized
